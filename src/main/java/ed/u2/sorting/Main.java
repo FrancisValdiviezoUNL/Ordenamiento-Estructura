@@ -5,12 +5,32 @@ import ed.u2.sorting.modelos.Paciente;
 import ed.u2.sorting.modelos.ProductoInventario;
 import ed.u2.sorting.ordenamientos.*;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
+
+    public static void recomendacion(SortingMetrics burbuja, SortingMetrics seleccion, SortingMetrics insercion) {
+        List<SortingMetrics> metodos = new LinkedList<>();
+        metodos.add(burbuja);
+        metodos.add(seleccion);
+        metodos.add(insercion);
+
+        String[] nombres = {"Burbuja", "Selección", "Inserción"};
+
+// Encontrar el de menos swaps
+        int indiceMenor = 0;
+        SortingMetrics menor = metodos.get(0);
+
+        for (int i = 1; i < metodos.size(); i++) {
+            if (metodos.get(i).swaps < menor.swaps) {
+                menor = metodos.get(i);
+                indiceMenor = i;
+            }
+        }
+
+        System.out.println("El algoritmo con menos swaps fue: "
+                + nombres[indiceMenor] + " con " + menor.swaps + " swaps.");
+    }
 
     private static void citas(String path) throws Exception {
         List<Cita> citas = DatasetLoader.cargarCitas(path);
@@ -30,6 +50,7 @@ public class Main {
         SelectionSort.selectionSort(Lista_metodo2, porFecha, metodo_Select);
         InsertionSort.insertionSort(Lista_metodo3, porFecha, metodo_Insert);
 
+
         System.out.println("------------------------------");
         System.out.println("Burbuja:    " + metodo_Bubble);
         System.out.println("------------------------------");
@@ -37,6 +58,8 @@ public class Main {
         System.out.println("------------------------------");
         System.out.println("Insercion: " + metodo_Insert);
         System.out.println("------------------------------");
+
+        recomendacion(metodo_Bubble, metodo_Select, metodo_Insert);
     }
 
     private static void pacientes(String path) throws Exception {
@@ -64,6 +87,8 @@ public class Main {
         System.out.println("------------------------------");
         System.out.println("Insercion: " + metodo_Insert);
         System.out.println("------------------------------");
+
+        recomendacion(metodo_Bubble, metodo_Select, metodo_Insert);
     }
 
     private static void inventario(String path) throws Exception {
@@ -91,6 +116,8 @@ public class Main {
         System.out.println("------------------------------");
         System.out.println("Insercion: " + metodo_Insert);
         System.out.println("------------------------------");
+
+        recomendacion(metodo_Bubble, metodo_Select, metodo_Insert);
     }
 
     public static void main(String[] args) throws Exception {
@@ -136,3 +163,4 @@ public class Main {
         sc.close();
     }
 }
+
