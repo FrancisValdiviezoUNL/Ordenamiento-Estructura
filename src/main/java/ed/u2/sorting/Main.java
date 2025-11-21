@@ -1,62 +1,138 @@
 package ed.u2.sorting;
+import ed.u2.sorting.datasets.DatasetLoader;
+import ed.u2.sorting.modelos.Cita;
+import ed.u2.sorting.modelos.Paciente;
+import ed.u2.sorting.modelos.ProductoInventario;
+import ed.u2.sorting.ordenamientos.*;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
+    private static void citas(String path) throws Exception {
+        List<Cita> citas = DatasetLoader.cargarCitas(path);
+        Comparator<Cita> porFecha = (a, b) -> a.fechaHora.compareTo(b.fechaHora);
 
-            while (true) {
+        System.out.println("Dataset: " + path + " (n=" + citas.size() + ") - clave = fechaHora");
 
-                System.out.println("\n=== MENU DE ORDENAMIENTO ===");
-                System.out.println("Ingrese números separados por espacio:");
-                String linea = sc.nextLine();
+        List<Cita> Lista_metodo1 = new ArrayList<>(citas);
+        List<Cita> Lista_metodo2 = new ArrayList<>(citas);
+        List<Cita> Lista_metodo3 = new ArrayList<>(citas);
 
-                String[] partes = linea.trim().split(" ");
+        SortingMetrics metodo_Bubble = new SortingMetrics();
+        SortingMetrics metodo_Select = new SortingMetrics();
+        SortingMetrics metodo_Insert = new SortingMetrics();
 
-                if (linea.trim().isEmpty()) {
-                    System.out.println("Debe ingresar al menos un número.\n");
-                    continue;
-                }
+        BubbleSort.bubbleSort(Lista_metodo1, porFecha, metodo_Bubble);
+        SelectionSort.selectionSort(Lista_metodo2, porFecha, metodo_Select);
+        InsertionSort.insertionSort(Lista_metodo3, porFecha, metodo_Insert);
 
-                int[] datos = new int[partes.length];
-                for (int i = 0; i < partes.length; i++) {
-                    datos[i] = Integer.parseInt(partes[i]);
-                }
+        System.out.println("------------------------------");
+        System.out.println("Burbuja:    " + metodo_Bubble);
+        System.out.println("------------------------------");
+        System.out.println("Seleccion: " + metodo_Select);
+        System.out.println("------------------------------");
+        System.out.println("Insercion: " + metodo_Insert);
+        System.out.println("------------------------------");
+    }
 
-                System.out.println("\nSeleccione algoritmo:");
-                System.out.println("1. Inserción");
-                System.out.println("2. Selección");
-                System.out.println("3. Burbuja");
-                System.out.println("4. Comparacion 3 metodos");
-                System.out.println("0. Salir");
-                System.out.print("Opción: ");
-                int op = Integer.parseInt(sc.nextLine());
+    private static void pacientes(String path) throws Exception {
+        List<Paciente> pacientes = DatasetLoader.cargarPacientes(path);
+        Comparator<Paciente> porApellido = (a, b) -> a.apellido.compareTo(b.apellido);
 
-                if (op == 0) {
-                    System.out.println("Saliendo...");
-                    break;
-                }
+        System.out.println("Dataset: " + path + " (n=" + pacientes.size() + ") - clave = apellido");
 
-                System.out.println("\n=== ESTADO INICIAL ===");
-                SortingUtils.printBarGraph(datos);
+        List<Paciente> Lista_metodo1 = new ArrayList<>(pacientes);
+        List<Paciente> Lista_metodo2 = new ArrayList<>(pacientes);
+        List<Paciente> Lista_metodo3 = new ArrayList<>(pacientes);
 
-                switch (op) {
-                    case 1 -> InsertionSort.sort(datos, true);
-                    case 2 -> SelectionSort.sort(datos, true);
-                    case 3 -> BubbleSort.sort(datos, true);
-                    case 4 -> {
-                        SortingUtils.compareAll(datos);
-                        continue;
-                    }
-                    default -> System.out.println("Opción inválida.");
-                }
+        SortingMetrics metodo_Bubble = new SortingMetrics();
+        SortingMetrics metodo_Select = new SortingMetrics();
+        SortingMetrics metodo_Insert = new SortingMetrics();
 
-                System.out.println("=== RESULTADO FINAL ===");
-                SortingUtils.printBarGraph(datos);
+        BubbleSort.bubbleSort(Lista_metodo1, porApellido, metodo_Bubble);
+        SelectionSort.selectionSort(Lista_metodo2, porApellido, metodo_Select);
+        InsertionSort.insertionSort(Lista_metodo3, porApellido, metodo_Insert);
+
+        System.out.println("------------------------------");
+        System.out.println("Burbuja:    " + metodo_Bubble);
+        System.out.println("------------------------------");
+        System.out.println("Seleccion: " + metodo_Select);
+        System.out.println("------------------------------");
+        System.out.println("Insercion: " + metodo_Insert);
+        System.out.println("------------------------------");
+    }
+
+    private static void inventario(String path) throws Exception {
+        List<ProductoInventario> inv = DatasetLoader.cargarInventario(path);
+        Comparator<ProductoInventario> porStock = (a, b) -> Integer.compare(a.stock, b.stock);
+
+        System.out.println("Dataset: " + path + " (n=" + inv.size() + ") - clave = stock");
+
+        List<ProductoInventario> Lista_metodo1 = new ArrayList<>(inv);
+        List<ProductoInventario> Lista_metodo2 = new ArrayList<>(inv);
+        List<ProductoInventario> Lista_metodo3 = new ArrayList<>(inv);
+
+        SortingMetrics metodo_Bubble = new SortingMetrics();
+        SortingMetrics metodo_Select = new SortingMetrics();
+        SortingMetrics metodo_Insert = new SortingMetrics();
+
+        BubbleSort.bubbleSort(Lista_metodo1, porStock, metodo_Bubble);
+        SelectionSort.selectionSort(Lista_metodo2, porStock, metodo_Select);
+        InsertionSort.insertionSort(Lista_metodo3, porStock, metodo_Insert);
+
+        System.out.println("------------------------------");
+        System.out.println("Burbuja:    " + metodo_Bubble);
+        System.out.println("------------------------------");
+        System.out.println("Seleccion: " + metodo_Select);
+        System.out.println("------------------------------");
+        System.out.println("Insercion: " + metodo_Insert);
+        System.out.println("------------------------------");
+    }
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("=== Taller Ordenación - Comparación Básica ===");
+            System.out.println("1. Probar citas por fecha");
+            System.out.println("2. Probar citas casi ordenadas por fecha");
+            System.out.println("3. Probar pacientes por apellido");
+            System.out.println("4. Probar inventario por stock");
+            System.out.println("5. Salir");
+            System.out.print("Opción: ");
+            int op = -1;
+            try {
+                op = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Opción inválida.");
+                continue;
             }
 
-            sc.close();
+            if (op == 5) {
+                System.out.println("Saliendo...");
+                break;
+            }
+
+            try {
+                switch (op) {
+                    case 1 -> citas("citas.csv");
+                    case 2 -> citas("citas_casiOrdenadas.csv");
+                    case 3 -> pacientes("pacientes.csv");
+                    case 4 -> inventario("inventario_inverso.csv");
+                    default -> System.out.println("Opción inválida.");
+                }
+            } catch (Exception e) {
+                System.out.println("Error al procesar dataset: " + e.getMessage());
+                e.printStackTrace();
+            }
+
+            System.out.println();
         }
+
+        sc.close();
+    }
 }

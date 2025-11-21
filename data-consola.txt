@@ -1,0 +1,381 @@
+=== MENU DE ORDENAMIENTO ===
+Ingrese números separados por espacio:
+1 2 3 4 5
+
+Seleccione algoritmo:
+1. Inserción
+2. Selección
+3. Burbuja
+4. Comparacion 3 metodos
+0. Salir
+Opción: 3
+
+=== ESTADO INICIAL ===
+                      #  
+                 #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    3    4    5  
+
+=== RESULTADO FINAL ===
+                      #  
+                 #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    3    4    5  
+
+
+=== MENU DE ORDENAMIENTO ===
+Ingrese números separados por espacio:
+5 4 3 2 1
+
+Seleccione algoritmo:
+1. Inserción
+2. Selección
+3. Burbuja
+4. Comparacion 3 metodos
+0. Salir
+Opción: 2
+
+=== ESTADO INICIAL ===
+  #                      
+  #    #                 
+  #    #    #            
+  #    #    #    #       
+  #    #    #    #    #  
+-------------------------
+  5    4    3    2    1  
+
+Swap 1: 5 ↔ 1
+                      #  
+       #              #  
+       #    #         #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    4    3    2    5  
+
+Swap 2: 4 ↔ 2
+                      #  
+                 #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    3    4    5  
+
+Swaps totales: 2
+=== RESULTADO FINAL ===
+                      #  
+                 #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    3    4    5  
+
+
+=== MENU DE ORDENAMIENTO ===
+Ingrese números separados por espacio:
+2 6 8 5 3 1
+
+Seleccione algoritmo:
+1. Inserción
+2. Selección
+3. Burbuja
+4. Comparacion 3 metodos
+0. Salir
+Opción: 1
+
+=== ESTADO INICIAL ===
+            #                 
+            #                 
+       #    #                 
+       #    #    #            
+       #    #    #            
+       #    #    #    #       
+  #    #    #    #    #       
+  #    #    #    #    #    #  
+------------------------------
+  2    6    8    5    3    1  
+
+
+--- Iteración 1 ---
+Insertando 6 en pos 1
+
+--- Iteración 2 ---
+Insertando 8 en pos 2
+
+--- Iteración 3 ---
+Moviendo 8 de pos 2 → pos 3
+Moviendo 6 de pos 1 → pos 2
+Insertando 5 en pos 1
+                 #            
+                 #            
+            #    #            
+       #    #    #            
+       #    #    #            
+       #    #    #    #       
+  #    #    #    #    #       
+  #    #    #    #    #    #  
+------------------------------
+  2    5    6    8    3    1  
+
+
+--- Iteración 4 ---
+Moviendo 8 de pos 3 → pos 4
+Moviendo 6 de pos 2 → pos 3
+Moviendo 5 de pos 1 → pos 2
+Insertando 3 en pos 1
+                      #       
+                      #       
+                 #    #       
+            #    #    #       
+            #    #    #       
+       #    #    #    #       
+  #    #    #    #    #       
+  #    #    #    #    #    #  
+------------------------------
+  2    3    5    6    8    1  
+
+
+--- Iteración 5 ---
+Moviendo 8 de pos 4 → pos 5
+Moviendo 6 de pos 3 → pos 4
+Moviendo 5 de pos 2 → pos 3
+Moviendo 3 de pos 1 → pos 2
+Moviendo 2 de pos 0 → pos 1
+Insertando 1 en pos 0
+                           #  
+                           #  
+                      #    #  
+                 #    #    #  
+                 #    #    #  
+            #    #    #    #  
+       #    #    #    #    #  
+  #    #    #    #    #    #  
+------------------------------
+  1    2    3    5    6    8  
+
+=== RESULTADO FINAL ===
+                           #  
+                           #  
+                      #    #  
+                 #    #    #  
+                 #    #    #  
+            #    #    #    #  
+       #    #    #    #    #  
+  #    #    #    #    #    #  
+------------------------------
+  1    2    3    5    6    8  
+
+
+=== MENU DE ORDENAMIENTO ===
+Ingrese números separados por espacio:
+6 2 8 5 1
+
+Seleccione algoritmo:
+1. Inserción
+2. Selección
+3. Burbuja
+4. Comparacion 3 metodos
+0. Salir
+Opción: 4
+
+=== ESTADO INICIAL ===
+            #            
+            #            
+  #         #            
+  #         #    #       
+  #         #    #       
+  #         #    #       
+  #    #    #    #       
+  #    #    #    #    #  
+-------------------------
+  6    2    8    5    1  
+
+
+=== COMPARACIÓN DE MÉTODOS ===
+
+--- Inserción ---
+
+--- Iteración 1 ---
+Moviendo 6 de pos 0 → pos 1
+Insertando 2 en pos 0
+            #            
+            #            
+       #    #            
+       #    #    #       
+       #    #    #       
+       #    #    #       
+  #    #    #    #       
+  #    #    #    #    #  
+-------------------------
+  2    6    8    5    1  
+
+
+--- Iteración 2 ---
+Insertando 8 en pos 2
+
+--- Iteración 3 ---
+Moviendo 8 de pos 2 → pos 3
+Moviendo 6 de pos 1 → pos 2
+Insertando 5 en pos 1
+                 #       
+                 #       
+            #    #       
+       #    #    #       
+       #    #    #       
+       #    #    #       
+  #    #    #    #       
+  #    #    #    #    #  
+-------------------------
+  2    5    6    8    1  
+
+
+--- Iteración 4 ---
+Moviendo 8 de pos 3 → pos 4
+Moviendo 6 de pos 2 → pos 3
+Moviendo 5 de pos 1 → pos 2
+Moviendo 2 de pos 0 → pos 1
+Insertando 1 en pos 0
+                      #  
+                      #  
+                 #    #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    5    6    8  
+
+Resultado Inserción:
+                      #  
+                      #  
+                 #    #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    5    6    8  
+
+
+--- Selección ---
+Swap 1: 6 ↔ 1
+            #            
+            #            
+            #         #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    8    5    6  
+
+Swap 2: 8 ↔ 5
+                 #       
+                 #       
+                 #    #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    5    8    6  
+
+Swap 3: 8 ↔ 6
+                      #  
+                      #  
+                 #    #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    5    6    8  
+
+Swaps totales: 3
+Resultado Selección:
+                      #  
+                      #  
+                 #    #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    5    6    8  
+
+
+--- Burbuja ---
+
+Paso 1:
+            #            
+            #            
+            #         #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    8    5    6  
+
+
+Paso 3:
+                 #       
+                 #       
+                 #    #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    5    8    6  
+
+
+Paso 4:
+                      #  
+                      #  
+                 #    #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    5    6    8  
+
+Resultado Burbuja:
+                      #  
+                      #  
+                 #    #  
+            #    #    #  
+            #    #    #  
+            #    #    #  
+       #    #    #    #  
+  #    #    #    #    #  
+-------------------------
+  1    2    5    6    8  
+
+====================================
+         RESUMEN FINAL
+====================================
+Método       | Tiempo (ms)  | Resultado
+------------------------------------
+Inserción    | 1,2552       | [1, 2, 5, 6, 8]
+Selección    | 1,8111       | [1, 2, 5, 6, 8]
+Burbuja      | 1,4126       | [1, 2, 5, 6, 8]
+------------------------------------
